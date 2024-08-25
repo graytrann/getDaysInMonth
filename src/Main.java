@@ -2,7 +2,7 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        boolean result = isLeapYear(-1600);
+        int result = getDaysInMonth(2,2020);
         System.out.println(result);
     }
 
@@ -13,7 +13,7 @@ public class Main {
 
         return switch (month) {
             case 1,3,5,7,8,10,12 -> 31;
-            case 2 -> 29;
+            case 2 -> isLeapYear(year) ? 29 : 28;
             case 4,6,9,11 -> 30;
             default -> -1;
         };
@@ -28,11 +28,7 @@ public class Main {
             if(year % 100 !=0){
                 return true;
             }else{
-                if(year % 400 == 0){
-                    return true;
-                }else {
-                 return false;
-                }
+                return year % 400 == 0;
             }
         } else {
             return false;
