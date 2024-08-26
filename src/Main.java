@@ -2,36 +2,25 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        int result = getDaysInMonth(2,2020);
-        System.out.println(result);
+        System.out.println("0 is " + (isPrime(0)? " ": " NOT ") + "a prime number");
+        System.out.println("1 is " + (isPrime(1)? " ": " NOT ") + "a prime number");
+        System.out.println("2 is " + (isPrime(2)? " ": " NOT ") + "a prime number");
+        System.out.println("3 is " + (isPrime(3)? " ": " NOT ") + "a prime number");
+        System.out.println("4 is " + (isPrime(4)? " ": " NOT ") + "a prime number");
+        System.out.println("5 is " + (isPrime(5)? " ": " NOT ") + "a prime number");
     }
 
-    public static int getDaysInMonth(int month,int year){
-        if(year < 1 || year > 9_999){
-            return -1;
+    public static  boolean isPrime(int wholeNumber){
+        if(wholeNumber <= 2){
+            return (wholeNumber ==2);
         }
 
-        return switch (month) {
-            case 1,3,5,7,8,10,12 -> 31;
-            case 2 -> isLeapYear(year) ? 29 : 28;
-            case 4,6,9,11 -> 30;
-            default -> -1;
-        };
-    }
-
-    public static boolean isLeapYear(int year){
-        if(year < 1 || year > 9_999){
-            return false;
-        }
-
-        if(year % 4 == 0 ){
-            if(year % 100 !=0){
-                return true;
-            }else{
-                return year % 400 == 0;
+        for(int divisor = 2; divisor < wholeNumber; divisor++){
+            if(wholeNumber % divisor ==0){
+                return false;
             }
-        } else {
-            return false;
         }
+
+        return true;
     }
 }
