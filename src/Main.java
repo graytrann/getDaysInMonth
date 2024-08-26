@@ -15,7 +15,7 @@ public class Main {
             return (wholeNumber ==2);
         }
 
-        for(int divisor = 2; divisor < wholeNumber; divisor++){
+        for(int divisor = 2; divisor <= wholeNumber/2; divisor++){
             if(wholeNumber % divisor ==0){
                 return false;
             }
